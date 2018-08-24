@@ -13,7 +13,7 @@
  */
 
 var HDWalletProvider = require("truffle-hdwallet-provider");
-const MNEMONIC = 'REDACTED';
+const MNEMONIC = 'YOUR WALLET KEY';
 
 module.exports = {
   networks: {
@@ -23,15 +23,11 @@ module.exports = {
       network_id: "*"
     },
     ropsten: {
-      // this just makes sure the network won't 
-      // isntantialized until its needed. 
-      // important when connecting to multiple networks
-      // https://truffleframework.com/docs/advanced/configuration#networks
       provider: function() {
-        return new HDWalletProvider(MNEMONIC, "https://ropsten.infura.io/YOUR_KEY_HERE")
+        return new HDWalletProvider(MNEMONIC, "https://ropsten.infura.io/YOUR_API_KEY")
       },
       network_id: 3,
-      gas: 5000000
+      gas: 4000000      //make sure this gas allocation isn't over 4M, which is the max
     }
   }
 };
